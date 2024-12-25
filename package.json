@@ -1,0 +1,82 @@
+{
+  "name": "vue-runner",
+  "displayName": "Vue Runner",
+  "description": "Quick run vue project with pnpm/npm/yarn, support custom package manager and command",
+  "version": "0.0.10",
+  "publisher": "Bai",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Roywhite/Vue-Runner"
+  },
+  "icon": "media/vue-runner-icon.png",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "workspaceContains:package.json"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Vue Runner",
+      "properties": {
+        "vueRunner.packageManager": {
+          "type": "string",
+          "default": "pnpm",
+          "enum": ["pnpm", "npm", "yarn"],
+          "description": "选择包管理器 (pnpm/npm/yarn)"
+        },
+        "vueRunner.command": {
+          "type": "string",
+          "default": "dev",
+          "description": "运行命令 (例如: dev, serve)"
+        },
+        "vueRunner.customPlayIcon": {
+          "type": "string",
+          "default": "",
+          "description": "自定义运行按钮图标的 Codicon ID (例如: 'play')"
+        },
+        "vueRunner.customStopIcon": {
+          "type": "string",
+          "default": "",
+          "description": "自定义停止按钮图标的 Codicon ID (例如: 'stop')"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "vue-runner.runDev",
+        "title": "Run Vue Dev",
+        "icon": {
+          "light": "media/play-light.svg",
+          "dark": "media/play-dark.svg"
+        }
+      },
+      {
+        "command": "vue-runner.stopDev",
+        "title": "Stop Vue Dev",
+        "icon": {
+          "light": "media/stop-light.svg",
+          "dark": "media/stop-dark.svg"
+        }
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "vue-runner.runDev",
+          "when": "!vue-runner:isRunning",
+          "group": "navigation@1"
+        },
+        {
+          "command": "vue-runner.stopDev",
+          "when": "vue-runner:isRunning",
+          "group": "navigation@1"
+        }
+      ]
+    }
+  }
+} 

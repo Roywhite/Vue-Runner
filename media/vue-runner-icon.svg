@@ -1,0 +1,25 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#41B883"/>
+            <stop offset="100%" style="stop-color:#3DA776"/>
+        </linearGradient>
+        <linearGradient id="play" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#35495E"/>
+            <stop offset="100%" style="stop-color:#2C3E50"/>
+        </linearGradient>
+    </defs>
+    
+    <!-- 背景 -->
+    <rect width="128" height="128" rx="25" fill="url(#bg)"/>
+    
+    <!-- 组合图标：V形和播放按钮 -->
+    <g transform="translate(64, 64) rotate(90) scale(0.9)">
+        <!-- V形的左边 -->
+        <path d="M-40 -30L0 30L-25 30L-40 -30Z" fill="url(#play)"/>
+        <!-- V形的右边和播放按钮的结合 -->
+        <path d="M0 30L40 -30L25 -30L0 15L0 30Z" fill="url(#play)"/>
+        <!-- 播放按钮的三角形 -->
+        <path d="M25 -30L40 -30L25 -5L25 -30Z" fill="url(#play)"/>
+    </g>
+</svg> 
